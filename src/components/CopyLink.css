@@ -17,8 +17,13 @@
     background-color: red;
     color: #fff;
     border: none;
-    border-radius: 0.25rem;
+    border-radius: 0.4rem;
     cursor: pointer;
+}
+
+.CopyButton:hover {
+    background-color: rgb(198, 0, 0);
+    transition: all 0.3s ease;
 }
 
 .CopiedButton {
