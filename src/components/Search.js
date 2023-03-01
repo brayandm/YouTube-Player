@@ -46,6 +46,7 @@ function Search({ defaultSearch = '', isIndex = false }) {
                 </div>
             </div>
             {error && <div>Failed to load</div>}
+            {isLoading && <div></div>}
             {videos}
         </div>
     );
