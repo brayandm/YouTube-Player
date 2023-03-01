@@ -1,13 +1,13 @@
 .search {
     position: relative;
     right: 3%;
-    width: 500px;
+    width: 510px;
 }
 
 .search.index {
     position: relative;
     left: 30%;
-    width: 650px;
+    width: 660px;
 }
 
 .search-bar {
@@ -39,7 +39,7 @@
 
 .search-list {
     list-style-type: none;
-    padding: 0;
+    margin-top: 10px;
     max-height: 84vh;
     overflow-y: auto;
 }
@@ -54,6 +54,7 @@
 }
 
 .search-video-thumbnail {
+    margin-left: 10px;
     width: 150px;
     height: 80px;
     object-fit: cover;
@@ -61,6 +62,7 @@
 }
 
 .search-video-thumbnail.index {
+    margin-left: 10px;
     width: 300px;
     height: 150px;
     object-fit: cover;
@@ -112,14 +114,29 @@
     flex-direction: row;
     width: 350px;
     height: auto;
-    padding: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
     justify-content: center;
     align-items: center;
     animation: fadeIn ease 1s;
+}
+
+.search-video-card:hover {
+    background-color: rgba(210, 210, 210, 0.5);
+    border-radius: 10px;
+    scale: 1.05;
+    transition: all 0.3s ease;
 }
 
 .search-video-card.index {
     display: flex;
     flex-direction: row;
     width: 600px;
+}
+
+.search-video-card.index:hover {
+    background-color: rgba(210, 210, 210, 0.5);
+    border-radius: 20px;
+    scale: 1.05;
+    transition: all 0.3s ease;
 }
