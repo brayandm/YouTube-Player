@@ -6,7 +6,8 @@
 
 .search.index {
     position: relative;
-    left: 35%;
+    left: 30%;
+    width: 650px;
 }
 
 .search-bar {
@@ -59,6 +60,13 @@
     border-radius: 8px;
 }
 
+.search-video-thumbnail.index {
+    width: 300px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 .search-video-title {
     font-size: 12px;
     font-weight: bold;
@@ -68,6 +76,11 @@
     text-align: left;
 }
 
+.search-video-title.index {
+    font-size: 14px;
+    width: 300px;
+}
+
 .search-video-views {
     font-size: 12px;
     font-weight: bold;
@@ -75,6 +88,11 @@
     padding-left: 10px;
     word-wrap: break-word;
     text-align: left;
+}
+
+.search-video-views.index {
+    font-size: 14px;
+    width: 300px;
 }
 
 @keyframes fadeIn {
@@ -98,4 +116,10 @@
     justify-content: center;
     align-items: center;
     animation: fadeIn ease 1s;
+}
+
+.search-video-card.index {
+    display: flex;
+    flex-direction: row;
+    width: 600px;
 }

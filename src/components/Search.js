@@ -23,11 +23,11 @@ function Search({ defaultSearch = '', isIndex = false }) {
         videos = data.map((video) => {
             return <li key={video.id.videoId + "." + time}>
                 <Link to={`/videos/${video.id.videoId}?q=${search}`}>
-                    <div className='search-video-card'>
-                        <img className="search-video-thumbnail" src={video.snippet.thumbnails.url} alt={video.title} />
+                    <div className={'search-video-card' + (isIndex ? " index" : "")}>
+                        <img className={"search-video-thumbnail" + (isIndex ? " index" : "")} src={video.snippet.thumbnails.url} alt={video.title} />
                         <div className="search-video-card-right-side">
-                            <p className="search-video-title">{video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title}</p>
-                            <p className="search-video-views">{formatView(video.views)} views</p>
+                            <p className={"search-video-title" + (isIndex ? " index" : "")}>{video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title}</p>
+                            <p className={"search-video-views" + (isIndex ? " index" : "")}>{formatView(video.views)} views</p>
                         </div>
                     </div>
                 </Link>
