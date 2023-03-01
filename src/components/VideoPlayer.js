@@ -1,5 +1,6 @@
 import './VideoPlayer.css';
 import useSWR from 'swr';
+import { formatView } from '../helpers/FormatHelper';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -10,19 +11,6 @@ function VideoPlayer({ videoId }) {
         fetcher
     );
 
-    let views;
-
-    if (!error && !isLoading && data) {
-        views = data.views;
-        if (views >= 1000000000) {
-            views = (views / 1000000000).toFixed(1).replace(/\.0$/, '') + 'B';
-        } else if (views >= 1000000) {
-            views = (views / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-        } else if (views >= 1000) {
-            views = (views / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
-        }
-    }
-
     return (
         <div className="video-player">
             <iframe className="video-player-iframe" src={`https://www.youtube.com/embed/${videoId}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -31,7 +19,7 @@ function VideoPlayer({ videoId }) {
             {data && <div className="video-player-info">
                 <div className="video-player-title-info">
                     <h2 className="video-player-title">{data.title}</h2>
-                    <p className="video-player-views">{views} views</p>
+                    <p className="video-player-views"><b>{formatView(data.views)} views</b> </p>
                 </div>
                 <p className="video-player-description">{data.description}</p>
             </div>}

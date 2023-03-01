@@ -2,6 +2,7 @@ import './Search.css';
 import { useState } from 'react';
 import useSWR from 'swr';
 import { Link } from 'react-router-dom';
+import { formatView } from '../helpers/FormatHelper';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -17,17 +18,19 @@ function Search({ defaultSearch = '' }) {
     let videos = [];
 
     if (Array.isArray(data)) {
-        videos = data.map((video) =>
-            <li key={video.id.videoId}>
-                <div className='search-video-card'>
-                    <Link to={`/videos/${video.id.videoId}?q=${search}`}>
+        videos = data.map((video) => {
+            return <li key={video.id.videoId}>
+                <Link to={`/videos/${video.id.videoId}?q=${search}`}>
+                    <div className='search-video-card'>
                         <img className="search-video-thumbnail" src={video.snippet.thumbnails.url} alt={video.title} />
-                    </Link>
-                    <Link to={`/videos/${video.id.videoId}?q=${search}`}>
-                        <p className="search-video-title">{video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title}</p>
-                    </Link>
-                </div>
+                        <div className="search-video-card-right-side">
+                            <p className="search-video-title">{video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title}</p>
+                            <p className="search-video-views">{formatView(video.views)}</p>
+                        </div>
+                    </div>
+                </Link>
             </li>
+        }
         )
         videos = <ul className='search-list'> {videos} </ul>
     }
