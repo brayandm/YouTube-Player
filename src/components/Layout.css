@@ -1,0 +1,11 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-header-logo {
+    height: 80px;
+    width: 180px;
+    border-radius: 50%;
+    margin-left: 20px;
+}

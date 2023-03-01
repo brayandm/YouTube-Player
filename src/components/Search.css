@@ -1,9 +1,8 @@
 .search {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
     width: 450px;
-    margin: 50px;
 }
 
 .search-bar {
@@ -38,6 +37,10 @@
     padding: 0;
     max-height: 100vh;
     overflow-y: auto;
+}
+
+.search-list::-webkit-scrollbar {
+    display: none;
 }
 
 .search-video-thumbnail {

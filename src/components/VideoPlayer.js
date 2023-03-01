@@ -10,9 +10,18 @@ function VideoPlayer({ videoId }) {
         fetcher
     );
 
+    let views;
 
-    if (data)
-        console.log(data)
+    if (!error && !isLoading && data) {
+        views = data.views;
+        if (views >= 1000000000) {
+            views = (views / 1000000000).toFixed(1).replace(/\.0$/, '') + 'B';
+        } else if (views >= 1000000) {
+            views = (views / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        } else if (views >= 1000) {
+            views = (views / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        }
+    }
 
     return (
         <div className="video-player">
@@ -22,7 +31,7 @@ function VideoPlayer({ videoId }) {
             {data && <div className="video-player-info">
                 <div className="video-player-title-info">
                     <h2 className="video-player-title">{data.title}</h2>
-                    <p className="video-player-views">{data.views} views</p>
+                    <p className="video-player-views">{views} views</p>
                 </div>
                 <p className="video-player-description">{data.description}</p>
             </div>}
