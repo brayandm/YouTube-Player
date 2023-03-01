@@ -1,6 +1,7 @@
 import './Search.css';
 import { useState } from 'react';
 import useSWR from 'swr';
+import { Link } from 'react-router-dom';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -19,12 +20,12 @@ function Search() {
         videos = data.map((video) =>
             <li key={video.id.videoId}>
                 <div className='search-video-card'>
-                    <a href={video.url} target="_blank" rel="noreferrer" >
+                    <Link to={`/videos/${video.id.videoId}`}>
                         <img className="search-video-thumbnail" src={video.snippet.thumbnails.url} alt={video.title} />
-                    </a>
-                    <a href={video.url} target="_blank" rel="noreferrer" >
+                    </Link>
+                    <Link to={`/videos/${video.id.videoId}`}>
                         <p className="search-video-title">{video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title}</p>
-                    </a>
+                    </Link>
                 </div>
             </li>
         )
