@@ -1,6 +1,7 @@
 import './VideoPlayer.css';
 import useSWR from 'swr';
 import { formatView } from '../helpers/FormatHelper';
+import CopyLink from './CopyLink';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -20,6 +21,7 @@ function VideoPlayer({ videoId }) {
                 <div className="video-player-title-info">
                     <h2 className="video-player-title">{data.title}</h2>
                     <p className="video-player-views"><b>{formatView(data.views)} views</b> </p>
+                    <CopyLink link={window.location.href} />
                 </div>
                 <p className="video-player-description">{data.description}</p>
             </div>}
