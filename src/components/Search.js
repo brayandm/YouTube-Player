@@ -17,15 +17,17 @@ function Search({ defaultSearch = '', isIndex = false }) {
 
     let videos = [];
 
+    let time = new Date().getTime();
+
     if (Array.isArray(data)) {
         videos = data.map((video) => {
-            return <li key={video.id.videoId}>
+            return <li key={video.id.videoId + "." + time}>
                 <Link to={`/videos/${video.id.videoId}?q=${search}`}>
                     <div className='search-video-card'>
                         <img className="search-video-thumbnail" src={video.snippet.thumbnails.url} alt={video.title} />
                         <div className="search-video-card-right-side">
                             <p className="search-video-title">{video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title}</p>
-                            <p className="search-video-views">{formatView(video.views)}</p>
+                            <p className="search-video-views">{formatView(video.views)} views</p>
                         </div>
                     </div>
                 </Link>
@@ -44,7 +46,7 @@ function Search({ defaultSearch = '', isIndex = false }) {
                 </div>
             </div>
             {error && <div>Failed to load</div>}
-            {isLoading && <div>Loading...</div>}
+            {isLoading && <div></div>}
             {videos}
         </div>
     );

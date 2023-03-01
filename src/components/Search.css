@@ -39,7 +39,7 @@
 .search-list {
     list-style-type: none;
     padding: 0;
-    max-height: 100vh;
+    max-height: 84vh;
     overflow-y: auto;
 }
 
@@ -77,6 +77,18 @@
     text-align: left;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .search-video-card {
     display: flex;
     flex-direction: row;
@@ -85,4 +97,5 @@
     padding: 10px;
     justify-content: center;
     align-items: center;
+    animation: fadeIn ease 1s;
 }
