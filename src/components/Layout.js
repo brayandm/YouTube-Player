@@ -6,7 +6,9 @@ function Layout() {
     return (
         <div className="layout">
             <div className="layout-header">
-                <img className="layout-header-logo" src="/youtube-logo.png" alt="youtube logo" />
+                <a className="layout-header-link" href="/">
+                    <img className="layout-header-logo" src="/youtube-logo.png" alt="youtube logo" />
+                </a>
             </div>
             <Outlet />
         </div>
