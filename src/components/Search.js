@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function Search() {
+function Search({ defaultSearch = '' }) {
 
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(defaultSearch);
 
     const { data, error, isLoading } = useSWR(
         `https://youtube.thorsteinsson.is/api/search?q=${search}`,
@@ -20,10 +20,10 @@ function Search() {
         videos = data.map((video) =>
             <li key={video.id.videoId}>
                 <div className='search-video-card'>
-                    <Link to={`/videos/${video.id.videoId}`}>
+                    <Link to={`/videos/${video.id.videoId}?q=${search}`}>
                         <img className="search-video-thumbnail" src={video.snippet.thumbnails.url} alt={video.title} />
                     </Link>
-                    <Link to={`/videos/${video.id.videoId}`}>
+                    <Link to={`/videos/${video.id.videoId}?q=${search}`}>
                         <p className="search-video-title">{video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title}</p>
                     </Link>
                 </div>
