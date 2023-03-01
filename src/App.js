@@ -1,14 +1,11 @@
 import './App.css';
-import Search from './components/Search';
-import VideoPlayer from './components/VideoPlayer';
+import YouTubePlayer from './components/YouTubePlayer';
 
 function App() {
 
   return (
     <div className="App">
-      <h1>YouTube Clone</h1>
-      <VideoPlayer />
-      <Search />
+      <YouTubePlayer />
     </div>
   );
 }
