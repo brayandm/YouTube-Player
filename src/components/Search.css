@@ -4,6 +4,11 @@
     width: 450px;
 }
 
+.search.index {
+    position: relative;
+    left: 35%;
+}
+
 .search-bar {
     display: flex;
     flex-direction: row;

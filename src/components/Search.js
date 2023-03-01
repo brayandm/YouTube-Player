@@ -6,7 +6,7 @@ import { formatView } from '../helpers/FormatHelper';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function Search({ defaultSearch = '' }) {
+function Search({ defaultSearch = '', isIndex = false }) {
 
     const [search, setSearch] = useState(defaultSearch);
 
@@ -36,7 +36,7 @@ function Search({ defaultSearch = '' }) {
     }
 
     return (
-        <div className="search">
+        <div className={"search" + (isIndex ? " index" : "")}>
             <div className="search-bar">
                 <input className="search-input" type="text" value={search} placeholder="Search" onChange={(e) => { setSearch(e.target.value) }} />
                 <div className="search-icon">

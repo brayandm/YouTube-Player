@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Search />} />
+            <Route index element={<Search isIndex={true} />} />
             <Route path="videos/:videoId" element={<YouTubePlayer />} />
           </Route>
         </Routes>
