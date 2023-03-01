@@ -21,7 +21,7 @@ function VideoPlayer({ videoId }) {
                 <div className="video-player-title-info">
                     <h2 className="video-player-title">{data.title}</h2>
                     <p className="video-player-views"><b>{formatView(data.views)} views</b> </p>
-                    <CopyLink link={window.location.href} />
+                    <CopyLink link={window.location.origin + window.location.pathname} />
                 </div>
                 <p className="video-player-description">{data.description}</p>
             </div>}
