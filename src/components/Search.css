@@ -52,7 +52,7 @@
     width: 200px;
     text-align: center;
     padding: 10px;
-    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .search-video-card {
@@ -64,6 +64,5 @@
     border: 1px solid #9a9999;
     border-radius: 5px;
     box-shadow: 0 0 5px #9a9999;
-    /*center*/
     justify-content: center;
 }

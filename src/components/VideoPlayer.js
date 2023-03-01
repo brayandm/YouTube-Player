@@ -10,7 +10,9 @@ function VideoPlayer({ videoId }) {
         fetcher
     );
 
-    console.log(videoId)
+
+    if (data)
+        console.log(data)
 
     return (
         <div className="video-player">
@@ -18,7 +20,10 @@ function VideoPlayer({ videoId }) {
             {error && <div>Failed to load</div>}
             {isLoading && <div>Loading...</div>}
             {data && <div className="video-player-info">
-                <h2 className="video-player-title">{data.title}</h2>
+                <div className="video-player-title-info">
+                    <h2 className="video-player-title">{data.title}</h2>
+                    <p className="video-player-views">{data.views} views</p>
+                </div>
                 <p className="video-player-description">{data.description}</p>
             </div>}
         </div >
