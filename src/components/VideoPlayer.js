@@ -13,7 +13,7 @@ function VideoPlayer({ videoId }) {
 
     return (
         <div className="video-player">
-            <iframe className="video-player-iframe" src={`https://www.youtube.com/embed/${videoId}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe className="video-player-iframe" src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             {error && <div>Failed to load</div>}
             {isLoading && <div>Loading...</div>}
             {data && <div className="video-player-info">
