@@ -36,7 +36,7 @@
 .search-list {
     list-style-type: none;
     padding: 0;
-    max-height: 80vh;
+    max-height: 100vh;
     overflow-y: auto;
 }
 
