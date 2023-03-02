@@ -9,3 +9,8 @@
     border-radius: 50%;
     margin-left: 20px;
 }
+
+.layout-header-logo:hover {
+    scale: 1.05;
+    transition: all 0.3s ease;
+}
