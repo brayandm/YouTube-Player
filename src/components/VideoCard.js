@@ -2,7 +2,7 @@ import './VideoCard.css';
 import { formatView } from '../helpers/FormatHelper';
 import { motion } from 'framer-motion';
 
-function VideoCard({ video, isIndex }) {
+function VideoCard({ video, isIndex, delay = 0 }) {
     return (
         <motion.div
             initial={{ x: 100, opacity: 0 }}
@@ -11,6 +11,7 @@ function VideoCard({ video, isIndex }) {
                 type: "spring",
                 stiffness: 260,
                 damping: 20,
+                delay: delay
             }}
         >
             <div className={'video-card' + (isIndex ? " index" : "")}>

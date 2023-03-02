@@ -20,10 +20,10 @@ function Search({ defaultSearch = '', isIndex = false }) {
     let time = new Date().getTime();
 
     if (Array.isArray(data)) {
-        videos = data.map((video) => {
+        videos = data.map((video, index) => {
             return <li key={video.id.videoId + "." + time}>
                 <Link to={`/videos/${video.id.videoId}?q=${search}`}>
-                    <VideoCard video={video} isIndex={isIndex} />
+                    <VideoCard video={video} isIndex={isIndex} delay={index * 0.05} />
                 </Link>
             </li>
         }
