@@ -31,10 +31,20 @@ function Search({ defaultSearch = '', isIndex = false }) {
         videos = <ul className='search-list'> {videos} </ul>
     }
 
+    let timerId;
+
+    function handleInputChange(event) {
+        clearTimeout(timerId);
+
+        timerId = setTimeout(() => {
+            setSearch(event.target.value);
+        }, 500);
+    }
+
     return (
         <div className={"search" + (isIndex ? " index" : "")}>
             <div className="search-bar">
-                <input className="search-input" type="text" value={search} placeholder="Search" onChange={(e) => { setSearch(e.target.value) }} />
+                <input className="search-input" type="text" placeholder="Search" onChange={handleInputChange} />
                 <div className="search-icon">
                     <i class="icon-search"></i>
                 </div>
