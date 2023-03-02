@@ -2,7 +2,7 @@ import './Search.css';
 import { useState } from 'react';
 import useSWR from 'swr';
 import { Link } from 'react-router-dom';
-import { formatView } from '../helpers/FormatHelper';
+import VideoCard from './VideoCard';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -23,13 +23,7 @@ function Search({ defaultSearch = '', isIndex = false }) {
         videos = data.map((video) => {
             return <li key={video.id.videoId + "." + time}>
                 <Link to={`/videos/${video.id.videoId}?q=${search}`}>
-                    <div className={'search-video-card' + (isIndex ? " index" : "")}>
-                        <img className={"search-video-thumbnail" + (isIndex ? " index" : "")} src={video.snippet.thumbnails.url} alt={video.title} />
-                        <div className="search-video-card-right-side">
-                            <p className={"search-video-title" + (isIndex ? " index" : "")}>{video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title}</p>
-                            <p className={"search-video-views" + (isIndex ? " index" : "")}>{formatView(video.views)} views</p>
-                        </div>
-                    </div>
+                    <VideoCard video={video} isIndex={isIndex} />
                 </Link>
             </li>
         }
