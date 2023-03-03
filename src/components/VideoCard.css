@@ -1,6 +1,6 @@
 .video-thumbnail {
     margin-left: 10px;
-    width: 150px;
+    width: 130px;
     height: 80px;
     object-fit: cover;
     border-radius: 8px;
@@ -17,8 +17,8 @@
 .video-title {
     font-size: 12px;
     font-weight: bold;
-    width: 200px;
     padding-left: 10px;
+    padding-right: 15px;
     word-wrap: break-word;
     text-align: left;
 }
