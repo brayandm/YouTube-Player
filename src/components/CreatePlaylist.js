@@ -4,7 +4,7 @@ function CreatePlaylist() {
 
     return (
         <div className="create-playlist">
-            CreatePlaylist
+            <h1>Create a Playlist</h1>
         </div >
     );
 }
