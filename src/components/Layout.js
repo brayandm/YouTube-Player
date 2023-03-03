@@ -6,12 +6,16 @@ import useKeypress from '../hooks/useKeypress';
 
 function Layout() {
 
-    const [hidden, setHidden] = useState(true);
+    const [menuHidden, setMenuHidden] = useState(true);
 
     useKeypress((key) => {
         if (key === "Escape")
-            setHidden(true);
+            setMenuHidden(true);
     });
+
+    const onClickOption = () => {
+        setMenuHidden(true);
+    }
 
     return (
         <div className="layout">
@@ -19,8 +23,8 @@ function Layout() {
                 <a className="layout-header-link" href="/">
                     <img className="layout-header-logo" src="/youtube-logo.png" alt="youtube logo" />
                 </a>
-                <i class="icon-reorder youtube-options" onClick={(e) => { setHidden(!hidden) }}></i>
-                <OptionsMenu hidden={hidden} />
+                <i class="icon-reorder youtube-options" onClick={(e) => { setMenuHidden(!menuHidden) }}></i>
+                <OptionsMenu hidden={menuHidden} onClick={onClickOption} />
             </div>
             <Outlet />
         </div>

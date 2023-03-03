@@ -1,7 +1,7 @@
 import './OptionsMenu.css';
 import { Link } from 'react-router-dom';
 
-function OptionsMenu({ hidden }) {
+function OptionsMenu({ hidden, onClick }) {
 
     return (
         <div className={"options-menu " + (hidden ? "hidden" : "")}>
@@ -9,7 +9,7 @@ function OptionsMenu({ hidden }) {
                 <div className="options-menu-section">
                 </div>
 
-                <Link to="/playlists" className='options-menu-item-link'>
+                <Link to="/playlists" className='options-menu-item-link' onClick={onClick}>
                     <div className="options-menu-item">
                         <i class="icon-music"></i>
                         <span className="options-menu-text">Go to Playlists</span>
@@ -17,7 +17,7 @@ function OptionsMenu({ hidden }) {
                     </div>
                 </Link>
 
-                <Link to="/playlists/create" className='options-menu-item-link'>
+                <Link to="/playlists/create" className='options-menu-item-link' onClick={onClick}>
                     <div className="options-menu-item">
                         <i class="icon-plus"></i>
                         <span className="options-menu-text">Create a Playlist</span>
