@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import Search from './components/Search';
 import Playlists from './components/Playlists';
 import CreatePlaylist from './components/CreatePlaylist';
+import WatchPlaylist from './components/WatchPlaylist';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="videos/:videoId" element={<YouTubePlayer />} />
             <Route path="playlists" element={<Playlists />} />
             <Route path="playlists/create" element={<CreatePlaylist />} />
+            <Route path="playlists/:playlistId" element={<WatchPlaylist />} />
           </Route>
         </Routes>
       </BrowserRouter>

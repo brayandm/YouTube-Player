@@ -1,11 +1,14 @@
 import './CreatePlaylist.css';
 import useKeypress from '../hooks/useKeypress';
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 
 function CreatePlaylist() {
 
+    const navigate = useNavigate();
+
     function onClick(e) {
-        alert("Create Playlist - " + uuidv4());
+        navigate(`/playlists/${uuidv4()}`);
     }
 
     useKeypress((key) => {
