@@ -9,6 +9,7 @@ function Layout() {
                 <a className="layout-header-link" href="/">
                     <img className="layout-header-logo" src="/youtube-logo.png" alt="youtube logo" />
                 </a>
+                <i class="icon-reorder youtube-options"></i>
             </div>
             <Outlet />
         </div>
