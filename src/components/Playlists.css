@@ -1,4 +1,4 @@
-@keyframes fadein {
+@keyframes fadedown {
     from {
         opacity: 0;
         transform: translateY(-50px);
@@ -18,5 +18,5 @@
 .playlists h1 {
     text-align: center;
     margin-bottom: 50px;
-    animation: fadein 1s ease;
+    animation: fadedown 1s ease;
 }
