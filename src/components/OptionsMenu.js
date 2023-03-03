@@ -13,6 +13,12 @@ function OptionsMenu({ hidden }) {
                     <span className="options-menu-text">Go to Playlists</span>
                     <i className="icon-chevron-right"></i>
                 </div>
+
+                <div className="options-menu-item">
+                    <i class="icon-plus"></i>
+                    <span className="options-menu-text">Create a Playlist</span>
+                    <i className="icon-chevron-right"></i>
+                </div>
             </div>
         </div >
     );
