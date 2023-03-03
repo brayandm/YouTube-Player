@@ -47,6 +47,7 @@
 
 .options-menu-item:hover {
     background-color: rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .options-menu-item i {
