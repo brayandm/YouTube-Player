@@ -4,11 +4,16 @@ function OptionsMenu({ hidden }) {
 
     return (
         <div className={"options-menu " + (hidden ? "hidden" : "")}>
-            <ul className="options-menu-list">
-                <li className="options-menu-item">
-                    Option 1
-                </li>
-            </ul>
+            <div className="options-menu-list">
+                <div className="options-menu-section">
+                </div>
+
+                <div className="options-menu-item">
+                    <i class="icon-music"></i>
+                    <span className="options-menu-text">Go to Playlists</span>
+                    <i className="icon-chevron-right"></i>
+                </div>
+            </div>
         </div >
     );
 }
