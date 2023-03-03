@@ -2,10 +2,16 @@ import './Layout.css';
 import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import OptionsMenu from './OptionsMenu';
+import useKeypress from '../hooks/useKeypress';
 
 function Layout() {
 
     const [hidden, setHidden] = useState(true);
+
+    useKeypress((key) => {
+        if (key === "Escape")
+            setHidden(true);
+    });
 
     return (
         <div className="layout">
