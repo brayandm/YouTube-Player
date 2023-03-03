@@ -21,6 +21,10 @@
     animation: fadein 0.3s ease;
 }
 
+.options-menu a {
+    text-decoration: none;
+}
+
 .options-menu.hidden {
     display: none;
 }
