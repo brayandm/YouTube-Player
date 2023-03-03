@@ -18,6 +18,11 @@
     color: #000000;
 }
 
+.video-container {
+    width: 60vw;
+    height: 70vh;
+}
+
 .video-player-title-info {
     padding-left: 20px;
     padding-right: 20px;
