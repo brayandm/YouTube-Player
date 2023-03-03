@@ -1,3 +1,13 @@
+@keyframes fadein {
+    from {
+        transform: translateX(100px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
 .options-menu {
     position: absolute;
     top: 50px;
@@ -11,6 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: fadein 0.3s ease;
 }
 
 .options-menu.hidden {
