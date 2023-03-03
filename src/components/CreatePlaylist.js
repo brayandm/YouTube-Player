@@ -1,10 +1,11 @@
 import './CreatePlaylist.css';
 import useKeypress from '../hooks/useKeypress';
+import { v4 as uuidv4 } from 'uuid';
 
 function CreatePlaylist() {
 
     function onClick(e) {
-        alert("Create Playlist");
+        alert("Create Playlist - " + uuidv4());
     }
 
     useKeypress((key) => {
