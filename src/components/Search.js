@@ -49,7 +49,7 @@ function Search({ defaultSearch = '', isIndex = false }) {
                     <i class="icon-search"></i>
                 </div>
             </div>
-            {error && <div>Failed to load</div>}
+            {error && <div></div>}
             {isLoading && <div></div>}
             {videos}
         </div>
