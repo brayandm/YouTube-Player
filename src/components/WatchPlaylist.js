@@ -1,7 +1,6 @@
 import './WatchPlaylist.css';
 import { useParams } from 'react-router-dom';
 import useSWR from 'swr';
-import axios from 'axios';
 import PlaylistVideoPanel from './PlaylistVideoPanel';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
