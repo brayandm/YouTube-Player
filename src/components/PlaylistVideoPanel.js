@@ -1,15 +1,13 @@
 import './PlaylistVideoPanel.css';
+import VideoCardPlaylist from './VideoCardPlaylist';
 
 function PlaylistVideoPanel({ videos }) {
 
     return (
         <div className="playlist-video-panel">
-            {videos.map((video) => {
+            {videos.map((video, index) => {
                 return (
-                    <div className="playlist-video-panel-video">
-                        <p>{video.videoId}</p>
-
-                    </div >
+                    <VideoCardPlaylist key={index} video={video} />
                 );
             }
             )}

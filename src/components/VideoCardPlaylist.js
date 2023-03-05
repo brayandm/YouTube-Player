@@ -1,9 +1,9 @@
 import './VideoCardPlaylist.css';
 
-function VideoCardPlaylist({ video, isIndex, delay = 0 }) {
+function VideoCardPlaylist({ video }) {
     return (
-        <div>
-
+        <div className="video-card-playlist">
+            <img className="video-thumbnail-playlist" src={video.thumbnail} alt={video.title} />
         </div>
     );
 }
