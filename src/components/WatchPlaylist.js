@@ -19,32 +19,51 @@ function WatchPlaylist() {
 
     const [videoId, setVideoId] = useState("");
 
+    const [wait, setWait] = useState(false);
+
     function onclick() {
+
+        setWait(true);
 
         axios.get(`https://youtube.thorsteinsson.is/api/videos/${videoId}`, {
             "videoId": videoId
         }).then((response) => {
             console.log(response.data);
 
-            axios.put(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`, {
-                "name": data.name,
-                "videos": [...data.videos,
-                {
-                    videoId: response.data.videoId,
-                    thumbnail: response.data.thumbnailUrl,
-                    title: response.data.title,
-                    views: response.data.views,
-                }]
-            })
-                .then((response) => {
-                    console.log(response.data);
-                })
-                .catch((error) => {
+            axios.get(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`)
+                .then((responsePlaylist) => {
+                    console.log(responsePlaylist.data);
+
+                    axios.put(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`, {
+                        "name": responsePlaylist.data.name,
+                        "videos": [...responsePlaylist.data.videos,
+                        {
+                            videoId: response.data.videoId,
+                            thumbnail: response.data.thumbnailUrl,
+                            title: response.data.title,
+                            views: response.data.views,
+                        }]
+                    })
+                        .then((response) => {
+                            console.log(response.data);
+
+                            setWait(false);
+                        })
+                        .catch((error) => {
+                            console.log(error);
+
+                            setWait(false);
+                        }
+                        );
+
+                }).catch((error) => {
                     console.log(error);
-                }
-                );
+                    setWait(false);
+                });
+
         }).catch((error) => {
             console.log(error);
+            setWait(false);
         });
 
     }
@@ -66,9 +85,13 @@ function WatchPlaylist() {
                             Add VideoId:
                         </h3>
                         <input value={videoId} onChange={(e) => setVideoId(e.target.value)}></input>
-                        <div className='watch-playlist-add-video-icon'>
-                            <i className='icon-plus' onClick={onclick}> </i>
-                        </div>
+                        {!wait ?
+                            <div className='watch-playlist-add-video-icon'>
+                                <i className='icon-plus' onClick={onclick}> </i>
+                            </div> :
+                            <div className='watch-playlist-add-video-icon hide'>
+                                <i className='icon-plus' onClick={onclick}> </i>
+                            </div>}
                     </div>
                 </div>
                 <PlaylistVideoPanel videos={data.videos} />
