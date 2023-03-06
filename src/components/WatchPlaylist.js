@@ -31,8 +31,19 @@ function WatchPlaylist() {
             {error && <div></div>}
             {isLoading && <div></div>}
             {data && <div>
-                <h2> Id: {playlistId}</h2>
-                <h1>Playlist: {playlistName} </h1>
+
+                <div className='watch-playlist-top-container'>
+                    <div>
+                        <h2> Id: {playlistId}</h2>
+                        <h1>Playlist: {playlistName} </h1>
+                    </div>
+                    <div className='watch-playlist-add-video'>
+                        <h3>
+                            Add Video
+                        </h3>
+                        <i className='icon-plus'> </i>
+                    </div>
+                </div>
                 <PlaylistVideoPanel videos={data.videos} />
             </div>}
         </div >
