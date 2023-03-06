@@ -16,7 +16,7 @@ function Room() {
     const { data, error, isLoading } = useSWR(
         `https://youtube.thorsteinsson.is/api/playlists/${roomId}`,
         fetcher,
-        { refreshInterval: 500 }
+        { refreshInterval: 1 }
     );
 
     const playerRef = useRef(null);
@@ -53,6 +53,16 @@ function Room() {
         }
     }
 
+    function onReady(e) {
+        if (data) {
+            e.target.seekTo(data.videos[0].currentTime);
+        }
+    }
+
+    if (data) {
+        console.log(data);
+    }
+
     return (
         <div className="room">
             {error && <div></div>}
@@ -62,6 +72,7 @@ function Room() {
                 videoId={data.videos[0].videoId}
                 opts={opts}
                 onStateChange={onStateChange}
+                onReady={onReady}
             />}
         </div >
     );
