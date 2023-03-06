@@ -34,6 +34,14 @@ function WatchPlaylist() {
                 .then((responsePlaylist) => {
                     console.log(responsePlaylist.data);
 
+                    for (let i = 0; i < responsePlaylist.data.videos.length; i++) {
+                        if (responsePlaylist.data.videos[i].videoId === videoId) {
+                            setWait(false);
+                            alert("Video already in playlist");
+                            return;
+                        }
+                    }
+
                     axios.put(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`, {
                         "name": responsePlaylist.data.name,
                         "videos": [...responsePlaylist.data.videos,
@@ -46,6 +54,8 @@ function WatchPlaylist() {
                     })
                         .then((response) => {
                             console.log(response.data);
+
+                            setVideoId("");
 
                             setWait(false);
                         })
