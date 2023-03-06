@@ -46,7 +46,7 @@ function Search({ defaultSearch = '', isIndex = false }) {
             <div className="search-bar">
                 <input className="search-input" type="text" placeholder="Search" onChange={handleInputChange} />
                 <div className="search-icon">
-                    <i class="icon-search"></i>
+                    <i className="icon-search"></i>
                 </div>
             </div>
             {error && <div></div>}

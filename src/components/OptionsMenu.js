@@ -11,7 +11,7 @@ function OptionsMenu({ hidden, onClick }) {
 
                 <Link to="/playlists" className='options-menu-item-link' onClick={onClick}>
                     <div className="options-menu-item">
-                        <i class="icon-music"></i>
+                        <i className="icon-music"></i>
                         <span className="options-menu-text">Go to Playlists</span>
                         <i className="icon-chevron-right"></i>
                     </div>
@@ -19,7 +19,7 @@ function OptionsMenu({ hidden, onClick }) {
 
                 <Link to="/playlists/create" className='options-menu-item-link' onClick={onClick}>
                     <div className="options-menu-item">
-                        <i class="icon-plus"></i>
+                        <i className="icon-plus"></i>
                         <span className="options-menu-text">Create a Playlist</span>
                         <i className="icon-chevron-right"></i>
                     </div>

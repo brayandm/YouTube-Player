@@ -23,7 +23,7 @@ function Layout() {
                 <a className="layout-header-link" href="/">
                     <img className="layout-header-logo" src="/youtube-logo.png" alt="youtube logo" />
                 </a>
-                <i class="icon-reorder youtube-options" onClick={(e) => { setMenuHidden(!menuHidden) }}></i>
+                <i className="icon-reorder youtube-options" onClick={(e) => { setMenuHidden(!menuHidden) }}></i>
                 <OptionsMenu hidden={menuHidden} onClick={onClickOption} />
             </div>
             <Outlet />
