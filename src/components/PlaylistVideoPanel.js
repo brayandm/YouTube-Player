@@ -7,7 +7,7 @@ function PlaylistVideoPanel({ videos }) {
         <div className="playlist-video-panel">
             {videos.map((video, index) => {
                 return (
-                    <VideoCardPlaylist key={index} video={video} />
+                    <VideoCardPlaylist key={index} video={video} delay={index * 0.05} />
                 );
             }
             )}

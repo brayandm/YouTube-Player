@@ -1,15 +1,28 @@
 import './VideoCardPlaylist.css';
 import { formatView } from '../helpers/FormatHelper';
+import { motion } from 'framer-motion';
 
-function VideoCardPlaylist({ video }) {
+function VideoCardPlaylist({ video, delay = 0 }) {
     return (
-        <div className="video-card-playlist">
-            <div className="video-card-playlist-container-img">
-                <img className="video-thumbnail-playlist" src={video.thumbnail} alt={video.title} />
-                <p className='video-card-playlist-views'> {formatView(video.views) + ' views'} </p>
-                <p className='video-card-playlist-title'> {video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title} </p>
+        <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: delay
+            }}
+        >
+            <div className="video-card-playlist">
+                <div className="video-card-playlist-container-img">
+                    <img className="video-thumbnail-playlist" src={video.thumbnail} alt={video.title} />
+                    <p className='video-card-playlist-views'> {formatView(video.views) + ' views'} </p>
+                    <p className='video-card-playlist-title'> {video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title} </p>
+                </div>
             </div>
-        </div>
+
+        </motion.div >
     );
 }
 
