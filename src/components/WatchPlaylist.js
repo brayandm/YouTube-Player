@@ -14,12 +14,26 @@ function WatchPlaylist() {
         fetcher
     );
 
+    let playlistName = "";
+
+    if (data) {
+        for (let i = data.name.length - 1; i >= 0; i--) {
+            if (data.name[i] === '+') {
+                playlistName = data.name.substring(0, i);
+                break;
+            }
+        }
+    }
+
     return (
         <div className="watch-playlist">
-            <h1>Playlist: {playlistId}</h1>
+
             {error && <div></div>}
             {isLoading && <div></div>}
-            {data && <PlaylistVideoPanel videos={data.videos} />}
+            {data && <div>
+                <h1>Playlist: {playlistName}</h1>
+                <PlaylistVideoPanel videos={data.videos} />
+            </div>}
         </div >
     );
 }

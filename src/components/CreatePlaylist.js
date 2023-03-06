@@ -3,14 +3,16 @@ import useKeypress from '../hooks/useKeypress';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useState } from 'react';
 
 function CreatePlaylist() {
 
     const navigate = useNavigate();
+    const [playlistName, setPlaylistName] = useState("");
 
     function onClick(e) {
 
-        const playlistId = uuidv4();
+        const playlistId = `${playlistName}+` + uuidv4();
 
         axios.post('https://youtube.thorsteinsson.is/api/playlists', {
             name: playlistId,
@@ -31,7 +33,7 @@ function CreatePlaylist() {
             <h1>Create a Playlist</h1>
             <h2>Put the name</h2>
             <div class="create-playlist-input">
-                <input type="text" />
+                <input type="text" value={playlistName} onChange={(e) => setPlaylistName(e.target.value)} />
                 <i class="icon-plus" onClick={onClick}></i>
             </div>
         </div >
