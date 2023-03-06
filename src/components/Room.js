@@ -59,10 +59,6 @@ function Room() {
         }
     }
 
-    if (data) {
-        console.log(data);
-    }
-
     return (
         <div className="room">
             {error && <div></div>}
