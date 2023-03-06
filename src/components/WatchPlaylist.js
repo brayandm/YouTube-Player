@@ -31,7 +31,8 @@ function WatchPlaylist() {
             {error && <div></div>}
             {isLoading && <div></div>}
             {data && <div>
-                <h1>Playlist: {playlistName}</h1>
+                <h2> Id: {playlistId}</h2>
+                <h1>Playlist: {playlistName} </h1>
                 <PlaylistVideoPanel videos={data.videos} />
             </div>}
         </div >

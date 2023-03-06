@@ -21,3 +21,9 @@
     margin-bottom: 50px;
     animation: fadedown 1s ease;
 }
+
+.watch-playlist h2 {
+    font-size: 13px;
+    text-align: center;
+    animation: fadedown 1s ease;
+}
