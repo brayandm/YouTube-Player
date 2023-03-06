@@ -29,15 +29,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    background-color: red;
     animation: fadeleft 1s ease;
 }
 
-.watch-playlist-add-video:hover {
+.watch-playlist-add-video-icon:hover {
     cursor: pointer;
     background-color: rgb(198, 0, 0);
     scale: 1.1;
@@ -46,16 +41,27 @@
 
 .watch-playlist-add-video h3 {
     font-size: 12px;
-    color: white;
+    color: black;
     text-align: center;
+    margin-right: 10px
 }
 
-.watch-playlist-add-video i {
-    margin-top: 2px;
-    align-self: center;
+.watch-playlist-add-video-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30px;
+    height: 30px;
     margin-left: 10px;
+    background-color: red;
+    border-radius: 8px;
+}
+
+.watch-playlist-add-video-icon i {
+    align-self: center;
     font-size: 18px;
-    color: white
+    color: white;
+    margin: auto;
 }
 
 .watch-playlist {

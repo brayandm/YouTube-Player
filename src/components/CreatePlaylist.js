@@ -1,6 +1,5 @@
 import './CreatePlaylist.css';
 import useKeypress from '../hooks/useKeypress';
-import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
@@ -12,10 +11,8 @@ function CreatePlaylist() {
 
     function onClick(e) {
 
-        const playlistId = `${playlistName}+` + uuidv4();
-
         axios.post('https://youtube.thorsteinsson.is/api/playlists', {
-            name: playlistId,
+            name: playlistName,
         }).then((response) => {
             navigate(`/playlists/${response.data.id}`);
         }).catch((error) => {

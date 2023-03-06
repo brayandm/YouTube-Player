@@ -2,6 +2,8 @@ import './WatchPlaylist.css';
 import { useParams } from 'react-router-dom';
 import useSWR from 'swr';
 import PlaylistVideoPanel from './PlaylistVideoPanel';
+import { useState } from 'react';
+import axios from 'axios';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -11,18 +13,40 @@ function WatchPlaylist() {
 
     const { data, error, isLoading } = useSWR(
         `https://youtube.thorsteinsson.is/api/playlists/${playlistId}`,
-        fetcher
+        fetcher,
+        { refreshInterval: 200 }
     );
 
-    let playlistName = "";
+    const [videoId, setVideoId] = useState("");
 
-    if (data) {
-        for (let i = data.name.length - 1; i >= 0; i--) {
-            if (data.name[i] === '+') {
-                playlistName = data.name.substring(0, i);
-                break;
-            }
-        }
+    function onclick() {
+
+        axios.get(`https://youtube.thorsteinsson.is/api/videos/${videoId}`, {
+            "videoId": videoId
+        }).then((response) => {
+            console.log(response.data);
+
+            axios.put(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`, {
+                "name": data.name,
+                "videos": [...data.videos,
+                {
+                    videoId: response.data.videoId,
+                    thumbnail: response.data.thumbnailUrl,
+                    title: response.data.title,
+                    views: response.data.views,
+                }]
+            })
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                }
+                );
+        }).catch((error) => {
+            console.log(error);
+        });
+
     }
 
     return (
@@ -34,14 +58,17 @@ function WatchPlaylist() {
 
                 <div className='watch-playlist-top-container'>
                     <div>
-                        <h2> Id: {playlistId}</h2>
-                        <h1>Playlist: {playlistName} </h1>
+                        <h2> PlaylistId: {playlistId}</h2>
+                        <h1> Name: {data.name} </h1>
                     </div>
                     <div className='watch-playlist-add-video'>
                         <h3>
-                            Add Video
+                            Add VideoId:
                         </h3>
-                        <i className='icon-plus'> </i>
+                        <input value={videoId} onChange={(e) => setVideoId(e.target.value)}></input>
+                        <div className='watch-playlist-add-video-icon'>
+                            <i className='icon-plus' onClick={onclick}> </i>
+                        </div>
                     </div>
                 </div>
                 <PlaylistVideoPanel videos={data.videos} />
