@@ -14,7 +14,7 @@ function WatchPlaylist() {
     const { data, error, isLoading } = useSWR(
         `https://youtube.thorsteinsson.is/api/playlists/${playlistId}`,
         fetcher,
-        { refreshInterval: 200 }
+        { refreshInterval: 100 }
     );
 
     const [videoId, setVideoId] = useState("");
