@@ -1,7 +1,7 @@
 import ClickMe from './ClickMe';
 
 export default {
-    title: 'ClickMe',
+    title: 'Components/ClickMe',
     component: ClickMe,
 };
 

@@ -1,7 +1,7 @@
 import WelcomeCard from './WelcomeCard';
 
 export default {
-    title: 'WelcomeCard',
+    title: 'Components/WelcomeCard',
     component: WelcomeCard,
 };
 
