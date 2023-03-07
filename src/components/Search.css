@@ -56,3 +56,23 @@
 .search-list::-webkit-scrollbar {
     display: none;
 }
+
+.video-card-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.video-card-container .icon-plus-sign {
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.video-card-container .icon-plus-sign:hover {
+    scale: 1.1;
+    color: red;
+    transition: all 0.3s ease;
+}

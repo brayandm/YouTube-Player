@@ -6,7 +6,7 @@ import VideoCard from './VideoCard';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function Search({ defaultSearch = '', isIndex = false }) {
+function Search({ defaultSearch = '', isIndex = false, isAdding = false }) {
 
     const [search, setSearch] = useState(defaultSearch);
 
@@ -22,9 +22,12 @@ function Search({ defaultSearch = '', isIndex = false }) {
     if (Array.isArray(data)) {
         videos = data.map((video, index) => {
             return <li key={video.id.videoId + "." + time}>
-                <Link to={`/videos/${video.id.videoId}?q=${search}`}>
-                    <VideoCard video={video} isIndex={isIndex} delay={index * 0.05} />
-                </Link>
+                <div className='video-card-container'>
+                    {isAdding && <i className='icon-plus-sign'></i>}
+                    <Link to={`/videos/${video.id.videoId}?q=${search}`}>
+                        <VideoCard video={video} isIndex={isIndex} isAdding={isAdding} delay={index * 0.05} />
+                    </Link>
+                </div>
             </li>
         }
         )

@@ -29,7 +29,7 @@ function SearchForPlaylist() {
             </div>
             }
             <div className='search-for-playlist-search'>
-                <Search />
+                <Search isAdding={true} />
             </div>
         </div>
     );
