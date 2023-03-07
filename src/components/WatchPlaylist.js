@@ -5,6 +5,7 @@ import PlaylistVideoPanel from './PlaylistVideoPanel';
 import { useState } from 'react';
 import axios from 'axios';
 import useKeypress from '../hooks/useKeypress';
+import { Link } from 'react-router-dom';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -107,9 +108,11 @@ function WatchPlaylist() {
                             <div className='watch-playlist-add-video-icon hide'>
                                 <i className='icon-plus' onClick={onclick}> </i>
                             </div>}
-                        <div className='watch-playlist-search-video-icon'>
-                            <i className='icon-search'> </i>
-                        </div>
+                        <Link to={`/playlists/${playlistId}/search`}>
+                            <div className='watch-playlist-search-video-icon'>
+                                <i className='icon-search'> </i>
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <PlaylistVideoPanel videos={data.videos} playlistId={playlistId} />
