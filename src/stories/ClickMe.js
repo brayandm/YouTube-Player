@@ -1,11 +1,11 @@
 import './ClickMe.css'
 
-function ClickMe() {
+function ClickMe({ width, height, title, backgroundColor, textColor, borderRadius }) {
 
     return (
-        <div className="click-me" >
-
-        </div >
+        <button className="click-me" style={{
+            width: width, height: height, background: backgroundColor, color: textColor, 'border-radius': borderRadius + 'px'
+        }}> {title}</button >
     );
 }
 
