@@ -2,7 +2,7 @@ import './VideoCardPlaylist.css';
 import { formatView } from '../helpers/FormatHelper';
 import { motion } from 'framer-motion';
 
-function VideoCardPlaylist({ video, delay = 0 }) {
+function VideoCardPlaylist({ video, delay = 0, onDelete }) {
     return (
         <motion.div
             initial={{ y: 100, opacity: 0 }}
@@ -17,6 +17,9 @@ function VideoCardPlaylist({ video, delay = 0 }) {
             <div className="video-card-playlist">
                 <div className="video-card-playlist-container-img">
                     <img className="video-thumbnail-playlist" src={video.thumbnail} alt={video.title} />
+                    <div className="video-card-playlist-delete" onClick={() => onDelete(video.videoId)}>
+                        <i className="icon-trash"></i>
+                    </div>
                     <p className='video-card-playlist-views'> {formatView(video.views) + ' views'} </p>
                     <p className='video-card-playlist-title'> {video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title} </p>
                 </div>

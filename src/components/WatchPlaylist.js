@@ -109,7 +109,7 @@ function WatchPlaylist() {
                             </div>}
                     </div>
                 </div>
-                <PlaylistVideoPanel videos={data.videos} />
+                <PlaylistVideoPanel videos={data.videos} playlistId={playlistId} />
             </div>}
         </div >
     );

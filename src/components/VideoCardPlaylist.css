@@ -38,7 +38,21 @@
 
 .video-card-playlist-views {
     position: relative;
-    transform: translate(60px, -125px);
+    transform: translate(65px, -145px);
     text-align: end;
     color: lightgray;
+}
+
+.video-card-playlist-delete {
+    position: relative;
+    transform: translate(-100px, -125px);
+    text-align: start;
+    font-size: 20px;
+    color: white;
+}
+
+.video-card-playlist-delete:hover {
+    color: red;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
