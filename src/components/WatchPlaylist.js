@@ -107,6 +107,9 @@ function WatchPlaylist() {
                             <div className='watch-playlist-add-video-icon hide'>
                                 <i className='icon-plus' onClick={onclick}> </i>
                             </div>}
+                        <div className='watch-playlist-search-video-icon'>
+                            <i className='icon-search'> </i>
+                        </div>
                     </div>
                 </div>
                 <PlaylistVideoPanel videos={data.videos} playlistId={playlistId} />

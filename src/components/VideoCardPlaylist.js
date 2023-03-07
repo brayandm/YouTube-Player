@@ -20,8 +20,8 @@ function VideoCardPlaylist({ video, delay = 0, onDelete }) {
                     <div className="video-card-playlist-delete" onClick={() => onDelete(video.videoId)}>
                         <i className="icon-trash"></i>
                     </div>
-                    <p className='video-card-playlist-views'> {formatView(video.views) + ' views'} </p>
-                    <p className='video-card-playlist-title'> {video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title} </p>
+                    {video.views && <p className='video-card-playlist-views'> {formatView(video.views) + ' views'} </p>}
+                    {video.title && <p className='video-card-playlist-title'> {video.title.length > 50 ? video.title.substring(0, 50) + "..." : video.title} </p>}
                 </div>
             </div>
 

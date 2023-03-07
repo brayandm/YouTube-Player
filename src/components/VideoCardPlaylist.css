@@ -32,8 +32,9 @@
 .video-card-playlist-title {
     position: relative;
     text-align: center;
-    padding: 5px;
-    transform: translate(0, -20px);
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: translate(0, -40px);
 }
 
 .video-card-playlist-views {
