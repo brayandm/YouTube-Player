@@ -1,8 +1,12 @@
+import Search from './Search';
 import './SearchForPlaylist.css';
 
 function SearchForPlaylist() {
+
     return (
-        <div></div>
+        <div>
+            <Search isIndex={true} />
+        </div>
     );
 }
 
