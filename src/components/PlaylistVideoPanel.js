@@ -2,7 +2,7 @@ import './PlaylistVideoPanel.css';
 import VideoCardPlaylist from './VideoCardPlaylist';
 import axios from 'axios';
 
-function PlaylistVideoPanel({ videos, playlistId }) {
+function PlaylistVideoPanel({ videos, playlistId, min }) {
 
     function onDelete(videoId) {
 
@@ -32,7 +32,7 @@ function PlaylistVideoPanel({ videos, playlistId }) {
     }
 
     return (
-        <div className="playlist-video-panel">
+        <div className={"playlist-video-panel " + (min ? "min" : "")}>
             {videos.map((video, index) => {
                 return (
                     <VideoCardPlaylist key={index} video={video} delay={index * 0.05} onDelete={onDelete} />

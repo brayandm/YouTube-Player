@@ -5,3 +5,11 @@
     margin: auto;
     width: 90vw;
 }
+
+.playlist-video-panel.min {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 70vw;
+}

@@ -32,6 +32,11 @@ function WatchPlaylist() {
         }).then((response) => {
             console.log(response.data);
 
+            if (response.data.videoId !== videoId) {
+                alert("Video not found");
+                return
+            }
+
             axios.get(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`)
                 .then((responsePlaylist) => {
                     console.log(responsePlaylist.data);
