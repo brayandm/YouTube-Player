@@ -12,6 +12,14 @@ function OptionsMenu({ hidden, onClick }) {
                     <div className="options-menu-section">
                     </div>
 
+                    <Link to="/" className='options-menu-item-link' onClick={onClick}>
+                        <div className="options-menu-item">
+                            <i className="icon-search"></i>
+                            <span className="options-menu-text">Search Video</span>
+                            <i className="icon-chevron-right"></i>
+                        </div>
+                    </Link>
+
                     <Link to="/playlists" className='options-menu-item-link' onClick={onClick}>
                         <div className="options-menu-item">
                             <i className="icon-music"></i>
