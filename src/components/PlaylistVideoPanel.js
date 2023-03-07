@@ -4,7 +4,12 @@ import axios from 'axios';
 
 function PlaylistVideoPanel({ videos, playlistId, min }) {
 
+    console.log("Here", playlistId)
     function onDelete(videoId) {
+
+        console.log(videoId)
+
+        console.log(playlistId)
 
         axios.get(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`)
             .then((responsePlaylist) => {

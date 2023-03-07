@@ -12,4 +12,6 @@
     flex-wrap: wrap;
     margin: auto;
     width: 70vw;
+    overflow-y: scroll;
+    height: 80vh;
 }

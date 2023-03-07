@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function Search({ defaultSearch = '', isIndex = false, isAdding = false, playlistId = '' }) {
+function Search({ defaultSearch = '', isIndex = false, isAdding = false, playlistId = '', addVideoToPlaylist = () => { } }) {
 
     const [search, setSearch] = useState(defaultSearch);
 
@@ -34,7 +34,7 @@ function Search({ defaultSearch = '', isIndex = false, isAdding = false, playlis
                                 damping: 20,
                                 delay: index * 0.05
                             }}>
-                            <i className='icon-plus-sign'></i>
+                            <i className='icon-plus-sign' onClick={() => addVideoToPlaylist(video.id.videoId)}></i>
                         </motion.div>}
                     <Link to={`/videos/${video.id.videoId}?q=${search}`}>
                         <VideoCard video={video} isIndex={isIndex} isAdding={isAdding} delay={index * 0.05} />

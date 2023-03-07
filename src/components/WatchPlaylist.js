@@ -111,7 +111,7 @@ function WatchPlaylist() {
                                 <i className='icon-plus' onClick={onclick}> </i>
                             </div> :
                             <div className='watch-playlist-add-video-icon hide'>
-                                <i className='icon-plus' onClick={onclick}> </i>
+                                <i className='icon-plus'> </i>
                             </div>}
                         <Link to={`/playlists/${playlistId}/search`}>
                             <div className='watch-playlist-search-video-icon'>
