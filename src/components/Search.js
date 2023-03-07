@@ -6,7 +6,7 @@ import VideoCard from './VideoCard';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function Search({ defaultSearch = '', isIndex = false, isAdding = false }) {
+function Search({ defaultSearch = '', isIndex = false, isAdding = false, playlistId = '' }) {
 
     const [search, setSearch] = useState(defaultSearch);
 
@@ -46,10 +46,17 @@ function Search({ defaultSearch = '', isIndex = false, isAdding = false }) {
 
     return (
         <div className={"search" + (isIndex ? " index" : "")}>
-            <div className="search-bar">
-                <input className="search-input" type="text" placeholder="Search" onChange={handleInputChange} />
-                <div className="search-icon">
-                    <i className="icon-search"></i>
+            <div className="search-bar-container">
+                {isAdding &&
+                    <Link className='search-back' to={`/playlists/${playlistId}`}>
+                        <i className='icon-reply'></i>
+                    </Link>
+                }
+                <div className="search-bar">
+                    <input className="search-input" type="text" placeholder="Search" onChange={handleInputChange} />
+                    <div className="search-icon">
+                        <i className="icon-search"></i>
+                    </div>
                 </div>
             </div>
             {error && <div></div>}

@@ -1,3 +1,15 @@
+@keyframes fadedown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .search {
     position: relative;
     right: 3%;
@@ -75,4 +87,25 @@
     scale: 1.1;
     color: red;
     transition: all 0.3s ease;
+}
+
+.search .icon-reply {
+    position: relative;
+    top: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.search a {
+    text-decoration: none;
+    color: black
+}
+
+.search-bar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    animation: fadedown ease 0.5s;
 }
