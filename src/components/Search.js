@@ -3,6 +3,7 @@ import { useState } from 'react';
 import useSWR from 'swr';
 import { Link } from 'react-router-dom';
 import VideoCard from './VideoCard';
+import { motion } from 'framer-motion';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -23,12 +24,23 @@ function Search({ defaultSearch = '', isIndex = false, isAdding = false, playlis
         videos = data.map((video, index) => {
             return <li key={video.id.videoId + "." + time}>
                 <div className='video-card-container'>
-                    {isAdding && <i className='icon-plus-sign'></i>}
+                    {isAdding &&
+                        <motion.div
+                            initial={{ x: 100, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                delay: index * 0.05
+                            }}>
+                            <i className='icon-plus-sign'></i>
+                        </motion.div>}
                     <Link to={`/videos/${video.id.videoId}?q=${search}`}>
                         <VideoCard video={video} isIndex={isIndex} isAdding={isAdding} delay={index * 0.05} />
                     </Link>
                 </div>
-            </li>
+            </li >
         }
         )
         videos = <ul className='search-list'> {videos} </ul>
