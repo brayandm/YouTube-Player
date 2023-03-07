@@ -4,6 +4,7 @@ import useSWR from 'swr';
 import PlaylistVideoPanel from './PlaylistVideoPanel';
 import { useState } from 'react';
 import axios from 'axios';
+import useKeypress from '../hooks/useKeypress';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -75,8 +76,12 @@ function WatchPlaylist() {
             console.log(error);
             setWait(false);
         });
-
     }
+
+    useKeypress((key) => {
+        if (key === "Enter")
+            onclick();
+    });
 
     return (
         <div className="watch-playlist">
