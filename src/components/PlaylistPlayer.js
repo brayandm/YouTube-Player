@@ -1,10 +1,14 @@
 import './PlaylistPlayer.css';
+import VideoPlayer from './VideoPlayer';
+import { useParams } from 'react-router-dom';
 
 function PlaylistPlayer() {
 
+    const { playlistId, videoId } = useParams();
+
     return (
         <div className="playlist-player">
-            PlaylistPlayer
+            <VideoPlayer videoId={videoId} />
         </div>
     );
 }
