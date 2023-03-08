@@ -17,7 +17,7 @@ function VideoCardPlaylist({ video, delay = 0, onDelete }) {
             <div className="video-card-playlist">
                 <div className="video-card-playlist-container-img">
                     <img className="video-thumbnail-playlist" src={video.thumbnail} alt={video.title} />
-                    <div className="video-card-playlist-delete" onClick={() => onDelete(video.videoId)}>
+                    <div className="video-card-playlist-delete" onClick={(e) => onDelete(e, video.videoId)}>
                         <i className="icon-trash"></i>
                     </div>
                     {video.views && <p className='video-card-playlist-views'> {formatView(video.views) + ' views'} </p>}
