@@ -30,7 +30,7 @@ function PlaylistPlayer() {
         videos = data.videos.map((video, index) => {
             return <li key={video.videoId + "." + time}>
                 <div className='video-card-container'>
-                    <Link to={`/playlists/${playlistId}/videos/${videoId}`}>
+                    <Link to={`/playlists/${playlistId}/videos/${video.videoId}`}>
                         <VideoCard video={video} delay={index * 0.05} />
                     </Link>
                 </div>
