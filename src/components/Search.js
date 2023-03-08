@@ -37,7 +37,7 @@ function Search({ defaultSearch = '', isIndex = false, isAdding = false, playlis
                             <i className='icon-plus-sign' onClick={() => addVideoToPlaylist(video.id.videoId)}></i>
                         </motion.div>}
                     <Link to={`/videos/${video.id.videoId}?q=${search}`}>
-                        <VideoCard video={video} isIndex={isIndex} isAdding={isAdding} delay={index * 0.05} />
+                        <VideoCard video={{ thumbnail: video.snippet.thumbnails.url, title: video.title, views: video.views }} isIndex={isIndex} isAdding={isAdding} delay={index * 0.05} />
                     </Link>
                 </div>
             </li >
