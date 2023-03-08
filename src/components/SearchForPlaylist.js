@@ -68,8 +68,6 @@ function SearchForPlaylist() {
         });
     }
 
-    console.log(playlistId)
-
     return (
         <div className='search-for-playlist'>
             {error && <div className='search-for-playlist-space'></div>}
@@ -83,7 +81,6 @@ function SearchForPlaylist() {
             </div>
             }
             <div className='search-for-playlist-search'>
-                {console.log("Aca", playlistId)}
                 <Search isAdding={true} playlistId={playlistId} addVideoToPlaylist={addVideoToPlaylist} />
             </div>
         </div>

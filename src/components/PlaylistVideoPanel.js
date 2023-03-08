@@ -5,14 +5,9 @@ import { Link } from 'react-router-dom';
 
 function PlaylistVideoPanel({ videos, playlistId, min }) {
 
-    console.log("Here", playlistId)
     function onDelete(e, videoId) {
 
         e.preventDefault();
-
-        console.log(videoId)
-
-        console.log(playlistId)
 
         axios.get(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`)
             .then((responsePlaylist) => {
