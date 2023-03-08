@@ -4,12 +4,15 @@ import { useParams } from 'react-router-dom';
 import useSWR from 'swr';
 import { Link } from 'react-router-dom';
 import VideoCard from './VideoCard';
+import { useNavigate } from 'react-router-dom';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function PlaylistPlayer() {
 
     const { playlistId, videoId } = useParams();
+
+    const navigate = useNavigate();
 
     const { data, error, isLoading } = useSWR(
         `https://youtube.thorsteinsson.is/api/playlists/${playlistId}`,
@@ -43,9 +46,9 @@ function PlaylistPlayer() {
     function onEnd(videoId) {
         let index = data.videos.findIndex((video) => video.videoId === videoId);
         if (index < data.videos.length - 1) {
-            window.location.href = `/playlists/${playlistId}/videos/${data.videos[index + 1].videoId}`
+            navigate(`/playlists/${playlistId}/videos/${data.videos[index + 1].videoId}`)
         } else {
-            window.location.href = `/playlists/${playlistId}/videos/${data.videos[0].videoId}`
+            navigate(`/playlists/${playlistId}/videos/${data.videos[0].videoId}`)
         }
     }
 
