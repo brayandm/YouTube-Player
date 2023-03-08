@@ -3,7 +3,7 @@ import VideoCardPlaylist from './VideoCardPlaylist';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-function PlaylistVideoPanel({ videos, playlistId, min }) {
+function PlaylistVideoPanel({ videos, playlistId, min, oneItem }) {
 
     function onDelete(e, videoId) {
 
@@ -35,7 +35,7 @@ function PlaylistVideoPanel({ videos, playlistId, min }) {
     }
 
     return (
-        <div className={"playlist-video-panel " + (min ? "min" : "")}>
+        <div className={"playlist-video-panel" + (min ? " min" : "") + (oneItem ? " one-item" : "")}>
             {videos.map((video, index) => {
                 return (
                     <Link to={`/playlists/${playlistId}/videos/${video.videoId}`}>

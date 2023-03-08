@@ -26,7 +26,7 @@ function PlaylistPlayer() {
             {error && <div></div>}
             {isLoading && <div></div>}
             {data &&
-                <PlaylistVideoPanel videos={data.videos} playlistId={playlistId} />}
+                <PlaylistVideoPanel videos={data.videos} playlistId={playlistId} oneItem={true} />}
         </div>
     );
 }

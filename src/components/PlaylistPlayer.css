@@ -1,0 +1,4 @@
+.playlist-player {
+    display: flex;
+    flex-direction: row;
+}
