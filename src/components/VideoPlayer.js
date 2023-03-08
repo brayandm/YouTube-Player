@@ -6,7 +6,7 @@ import YouTube from 'react-youtube';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function VideoPlayer({ videoId }) {
+function VideoPlayer({ videoId, onEnd = () => { } }) {
 
     const { data, error, isLoading } = useSWR(
         `https://youtube.thorsteinsson.is/api/videos/${videoId}`,
@@ -24,7 +24,7 @@ function VideoPlayer({ videoId }) {
     return (
         <div className="video-player">
             <div className="video-container">
-                <YouTube videoId={videoId} opts={opts} />
+                <YouTube videoId={videoId} opts={opts} onEnd={() => onEnd(videoId)} />
             </div>
             {error && <div></div>}
             {isLoading && <div></div>}

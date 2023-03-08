@@ -40,9 +40,18 @@ function PlaylistPlayer() {
         videos = <ul className='search-list'> {videos} </ul>
     }
 
+    function onEnd(videoId) {
+        let index = data.videos.findIndex((video) => video.videoId === videoId);
+        if (index < data.videos.length - 1) {
+            window.location.href = `/playlists/${playlistId}/videos/${data.videos[index + 1].videoId}`
+        } else {
+            window.location.href = `/playlists/${playlistId}/videos/${data.videos[0].videoId}`
+        }
+    }
+
     return (
         <div className="playlist-player ">
-            <VideoPlayer videoId={videoId} />
+            <VideoPlayer videoId={videoId} onEnd={onEnd} />
             {error && <div></div>}
             {isLoading && <div></div>}
             {data &&
