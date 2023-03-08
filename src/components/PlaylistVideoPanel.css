@@ -29,3 +29,33 @@
     overflow-y: scroll;
     height: 80vh;
 }
+
+.random-shuffle {
+    position: relative;
+    top: -50px;
+    left: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.random-shuffle.min {
+    top: -50px;
+    left: 680px;
+}
+
+.random-shuffle p {
+    margin-bottom: 0;
+    font-size: 25px
+}
+
+.random-shuffle i {
+    margin-left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.random-shuffle i:hover {
+    scale: 1.2;
+    transition: all 0.3s ease;
+}

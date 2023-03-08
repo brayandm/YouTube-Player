@@ -35,16 +35,22 @@ function PlaylistVideoPanel({ videos, playlistId, min, oneItem }) {
     }
 
     return (
-        <div className={"playlist-video-panel" + (min ? " min" : "") + (oneItem ? " one-item" : "")}>
-            {videos.map((video, index) => {
-                return (
-                    <Link to={`/playlists/${playlistId}/videos/${video.videoId}`}>
-                        <VideoCardPlaylist key={index} video={video} delay={index * 0.05} onDelete={onDelete} />
-                    </Link>
-                );
-            }
-            )}
-        </div >
+        <>
+            <div className={'random-shuffle' + (min ? " min" : "")}>
+                <p>Random:</p>
+                <i className='icon-refresh'></i>
+            </div>
+            <div className={"playlist-video-panel" + (min ? " min" : "") + (oneItem ? " one-item" : "")}>
+                {videos.map((video, index) => {
+                    return (
+                        <Link to={`/playlists/${playlistId}/videos/${video.videoId}`}>
+                            <VideoCardPlaylist key={index} video={video} delay={index * 0.05} onDelete={onDelete} />
+                        </Link>
+                    );
+                }
+                )}
+            </div >
+        </>
     );
 }
 
