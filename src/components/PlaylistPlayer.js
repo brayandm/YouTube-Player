@@ -57,6 +57,9 @@ function PlaylistPlayer() {
             <VideoPlayer videoId={videoId} onEnd={onEnd} />
             {error && <div></div>}
             {isLoading && <div></div>}
+            <Link to={`/playlists/${playlistId}`}>
+                <button className='playlist-player-back'>Edit the Playlist</button>
+            </Link>
             {data &&
                 <div className='playlist-list'>{videos}</div>}
         </div>
