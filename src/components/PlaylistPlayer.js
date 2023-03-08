@@ -34,7 +34,7 @@ function PlaylistPlayer() {
             return <li key={video.videoId + "." + time}>
                 <div className='video-card-container'>
                     <Link to={`/playlists/${playlistId}/videos/${video.videoId}`}>
-                        <VideoCard video={video} delay={index * 0.05} />
+                        <VideoCard video={video} delay={index * 0.05} isPlaying={video.videoId === videoId} />
                     </Link>
                 </div>
             </li >

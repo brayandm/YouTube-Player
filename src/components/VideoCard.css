@@ -61,6 +61,14 @@
     transition: all 0.3s ease;
 }
 
+.video-card.playing {
+    /*background color hover kind of blue link*/
+    background-color: rgba(173, 216, 230, 0.5);
+    border-radius: 10px;
+    scale: 1.05;
+    transition: all 0.3s ease;
+}
+
 .video-card.index {
     display: flex;
     flex-direction: row;
