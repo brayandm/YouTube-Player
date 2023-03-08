@@ -34,11 +34,39 @@ function PlaylistVideoPanel({ videos, playlistId, min, oneItem }) {
             });
     }
 
+    function randomize() {
+
+        axios.get(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`).then((responsePlaylist) => {
+            console.log(responsePlaylist.data);
+
+            let videosTemp = responsePlaylist.data.videos;
+
+            let currentIndex = videosTemp.length, temporaryValue, randomIndex;
+
+            while (0 !== currentIndex) {
+
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                temporaryValue = videosTemp[currentIndex];
+                videosTemp[currentIndex] = videosTemp[randomIndex];
+                videosTemp[randomIndex] = temporaryValue;
+            }
+
+            axios.put(`https://youtube.thorsteinsson.is/api/playlists/${playlistId}`, {
+                "name": responsePlaylist.data.name,
+                "videos": videosTemp
+            }
+            )
+        }
+        )
+    }
+
     return (
         <>
             <div className={'random-shuffle' + (min ? " min" : "")}>
                 <p>Random:</p>
-                <i className='icon-refresh'></i>
+                <i className='icon-refresh' onClick={randomize}></i>
             </div>
             <div className={"playlist-video-panel" + (min ? " min" : "") + (oneItem ? " one-item" : "")}>
                 {videos.map((video, index) => {
