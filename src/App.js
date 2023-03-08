@@ -8,6 +8,7 @@ import CreatePlaylist from './components/CreatePlaylist';
 import WatchPlaylist from './components/WatchPlaylist';
 import Room from './components/Room';
 import SearchForPlaylist from './components/SearchForPlaylist';
+import PlaylistPlayer from './components/PlaylistPlayer';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="playlists/create" element={<CreatePlaylist />} />
             <Route path="playlists/:playlistId" element={<WatchPlaylist />} />
             <Route path="playlists/:playlistId/search" element={<SearchForPlaylist />} />
+            <Route path="playlists/:playlistId/videos/:videoId" element={<PlaylistPlayer />} />
             <Route path="rooms/:roomId" element={<Room />} />
           </Route>
         </Routes>

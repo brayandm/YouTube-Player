@@ -15,3 +15,8 @@
     overflow-y: scroll;
     height: 80vh;
 }
+
+.playlist-video-panel a {
+    text-decoration: none;
+    color: #000000;
+}
