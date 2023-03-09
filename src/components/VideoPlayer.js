@@ -2,19 +2,30 @@ import './VideoPlayer.css';
 import useSWR from 'swr';
 import { formatView } from '../helpers/FormatHelper';
 import CopyLink from './CopyLink';
+import YouTube from 'react-youtube';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function VideoPlayer({ videoId }) {
+function VideoPlayer({ videoId, onEnd = () => { } }) {
 
     const { data, error, isLoading } = useSWR(
         `https://youtube.thorsteinsson.is/api/videos/${videoId}`,
         fetcher
     );
 
+    const opts = {
+        height: '500',
+        width: '100%',
+        playerVars: {
+            autoplay: 1,
+        },
+    };
+
     return (
         <div className="video-player">
-            <iframe className="video-player-iframe" src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div className="video-container">
+                <YouTube videoId={videoId} opts={opts} onEnd={() => onEnd(videoId)} />
+            </div>
             {error && <div></div>}
             {isLoading && <div></div>}
             {data && <div className="video-player-info">
